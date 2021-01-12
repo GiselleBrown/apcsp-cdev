@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
   float end;
   char buffer[256];
 
-  if (argc < 2)
+  if (argc < 3)
   {
     printf("What do you want the starting radius to be\n");
     while (1)
@@ -33,18 +33,21 @@ int main(int argc, char* argv[])
      if (sscanf(buffer, "%f", &end) == 1) break;
      printf("Not a valid float - try again!\n");
    }
-   printf("calculating area of circle starting at %f, and ending at %f\n", start, end);
-   float reps = end - start; 
-   for (int i = 0; i < reps; i++)
-   {
-    float calculation  = areaOfCircle(start);
-    printf("area for radius %f is %f\n", start, calculation);
-    start++;
-   }
   }
   else
   {
-   
+  int found = sscanf(argv[1], "%f", &start);
+  if (found != 1)
+  {
+    printf("second arg is not an integer, enter two ints\n");
+    return 1;
+  }
+  found = sscanf(argv[2], "%f", &end);
+  if (found != 1)
+  {
+    printf("second arg is not an integer, enter two ints\n");
+    return 1;
+  }
 
   }
   // the two variables which control the number of times areaOfCircle is called
