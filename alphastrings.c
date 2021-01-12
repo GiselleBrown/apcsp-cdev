@@ -9,7 +9,9 @@ int main()
   {
     stringOne[i] = 'a' + i;
   }
-  // string created using constant initializer
+  stringOne[26] = '\0';
+ 
+ // string created using constant initializer
   char stringTwo[] = "abcdefghijklmnopqrstuvwxyz";
 
   // Comparing the string
