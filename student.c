@@ -57,36 +57,26 @@ int main()
     }
     else if (c == 'a')
     {
-      struct Student newStudent;
-      char firstName[200];
-      char lastName[200];
-      int age;
-      int studentID;
 
       // enter a new student
       char input[256];
       printf("  First name: ");
       fgets(input, 256, stdin);
-      sscanf(input, "%s", &firstName);
-      strcpy(newStudent.firstName, firstName);
+      sscanf(input, "%s", students[numStudents].firstName);
 
 
       printf("\n  Last name: ");
       fgets(input, 256, stdin);
-      sscanf(input, "%s", lastName);
-      strcpy(newStudent.lastName, lastName);
+      sscanf(input, "%s", students[numStudents].lastName);
 
       printf("\n  Age: ");
       fgets(input, 256, stdin);
-      sscanf(input, "%d", &age);
-      newStudent.age = age;
+      sscanf(input, "%d", &students[numStudents].age);
 
       printf("\n  Student ID: ");
       fgets(input, 256, stdin);
-      sscanf(input, "&d", &studentID);
-      newStudent.studentID = studentID;
+      sscanf(input, "%d", &students[numStudents].studentID);
 
-      students[numStudents] = newStudent;
       numStudents++;
     }
   }
