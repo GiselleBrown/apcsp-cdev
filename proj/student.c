@@ -74,7 +74,10 @@ void saveStudents(int key)
     for(int i = 0; i < numStudents; i++)
     {
       sprintf(buff, "%s %s %d %ld", students[i]->firstName, students[i]->lastName, students[i]->age, students[i]->id);
-      caesarEncrypt(buff, key);
+      if (key != 0)
+      {
+        caesarEncrypt(buff, key);
+      }
       fprintf(fp, "%s\n", buff);
       printf("Saving: %s\n", buff);
     }
@@ -108,7 +111,7 @@ void loadStudents(int key)
   {
     while (1)
     {
-      if (fscanf(fp, "%s %s %s %s\n", buff1, buff2, buff3, buff4) == 4)
+      if (fscanf(fp, "%s %s %s %s", buff1, buff2, buff3, buff4) == 4)
       {
         if (key != 0)
         {
@@ -126,6 +129,7 @@ void loadStudents(int key)
       }
       createStudent(buff1, buff2, age, id);
     }
+    printf("Loaded %d students", numStudents);
     fclose(fp);
   }
 }

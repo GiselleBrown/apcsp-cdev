@@ -24,6 +24,9 @@ char shiftChar(char c, int shift, int direction)
   //   shiftChar('b', 3, 0) : '8'
   signed int index;
 
+  if (c == ' ')
+  return c;
+
   for (int i = 0; i < CHARS_LEN; i++)
   {
     if ( CHARS[i] == c)
